@@ -1,0 +1,13 @@
+.cardsWrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;              
+    justify-content: center;      
+    gap: 2rem;                    
+    padding: 2rem 1rem;           
+}
+
+.cardItem {
+    cursor: pointer;
+    border-radius: 0.85em;        
+}

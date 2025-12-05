@@ -1,0 +1,110 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+    padding: 2em 1em;
+}
+
+.pageContainer h1 {
+    font-size: 2.2rem;
+    margin-bottom: -1em;
+}
+
+.itemsListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 100%;
+    max-width: 900px;
+}
+
+.itemContainer {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5em;
+
+    background: #ffffff;
+    border-radius: 1em;
+    padding: 1.5em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.itemContainer img {
+    width: 100%;
+    height: 150px;
+    border-radius: 0.8em;
+    object-fit: cover;
+}
+
+.itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+}
+
+.itemContent h2 {
+    font-size: 1.5rem;
+}
+
+.portionContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.portionBtns {
+    display: flex;
+    gap: 0.5em;
+}
+
+.portionBtns button {
+    background: #004d46;
+    color: white;
+    padding: 0.3em 0.6em;
+    border-radius: 0.4em;
+}
+
+.itemContent button {
+    margin-top: 0.4em;
+    background: #d9534f;
+    color: white;
+    padding: 0.6em 1em;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.confirmBtn {
+    position: fixed;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #004d46;
+    color: white;
+    padding: 1em 1.5em;
+    border-radius: 0.7em;
+    font-size: 1.3rem;
+
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 700px) {
+    .itemContainer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .itemContainer img {
+        height: 200px;
+    }
+
+    .portionContainer {
+        justify-content: center;
+    }
+
+    .itemContent button {
+        justify-content: center;
+    }
+}
