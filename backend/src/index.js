@@ -10,8 +10,7 @@ import ordersRouter from './routes/orders.js'
 config()
 
 async function main () {
-    const hostname = 'localhost'
-    const port = 3000
+    const port = process.env.PORT || 3000
 
     const app = express()
 
@@ -19,10 +18,12 @@ async function main () {
         mongoConnectionString: process.env.MONGO_CS,
         mongoDbName: process.env.MONGO_DB_NAME
     })
-    console.log(mongoConnection)
 
     app.use(cors({
-        origin: "http://localhost:5173",
+        origin: [
+            "http://localhost:5173",
+            "https://ratatouille-q4j9.onrender.com"
+        ]
     }))
 
     app.use(express.json())
@@ -35,14 +36,13 @@ async function main () {
         })
     })
 
-    // routes
     app.use('/auth', authRouter)
     app.use('/users', usersRouter)
     app.use('/plates', platesRouter)
     app.use('/orders', ordersRouter)
     
     app.listen(port, () => {
-        console.log(`Server running on: http://${hostname}:${port}`)
+        console.log(`Server running on port ${port}`)
     })
 }
 
