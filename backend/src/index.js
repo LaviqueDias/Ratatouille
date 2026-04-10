@@ -19,11 +19,25 @@ async function main () {
         mongoDbName: process.env.MONGO_DB_NAME
     })
 
+    const allowedOrigins = [
+        "http://localhost:5173",
+        "https://ratatouille.vercel.app"
+    ]
+
     app.use(cors({
-        origin: [
-            "http://localhost:5173",
-            "https://ratatouille-f3v2rsblk-laviquedias-projects.vercel.app"
-        ]
+        origin: function(origin, callback) {
+            if (!origin) return callback(null, true)
+
+            if (
+                allowedOrigins.includes(origin) ||
+                origin.endsWith(".vercel.app")
+            ) {
+                callback(null, true)
+            } else {
+                callback(new Error("Not allowed by CORS"))
+            }
+        },
+        credentials: true
     }))
 
     app.use(express.json())
