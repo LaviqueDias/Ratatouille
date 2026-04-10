@@ -22,7 +22,7 @@ async function main () {
     app.use(cors({
         origin: [
             "http://localhost:5173",
-            "https://ratatouille-q4j9.onrender.com"
+            "https://ratatouille-f3v2rsblk-laviquedias-projects.vercel.app"
         ]
     }))
 
